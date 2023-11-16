@@ -28,21 +28,7 @@
   .background-footer {
     background-color: var(--background-footer-color);
   }
-  
-  .content picture{
-    right:80%;
-  }
 
-  .image {
-    border-radius:7px;
-    border-radius: 70%;
-    clip-path:ellipse(50% 40%);
-    position: absolute;
-    translate: -50%;
-    width: 174px;
-    height: auto;
-  } 
-  
   .bigger-text {
     font-size: 2.5rem;
     font-size: clamp(2.5rem, 0.7rem + 7.68vw, 5.5rem);
@@ -197,6 +183,24 @@
     padding-bottom: 80px;
   }
 
+  .flex-container {
+    display: flex;
+    justify-content: space-between; /* Aligne les éléments sur l'axe horizontal */
+    align-items: center; /* Aligne les éléments sur l'axe vertical */
+    flex-wrap: wrap; /* Permet le passage à la ligne des éléments en dessous de la largeur spécifiée */
+}
+
+  .image {
+    position: absolute;
+    border-radius:7px;
+    border-radius: 70%;
+    clip-path:ellipse(50% 40%);
+    translate: 30%;
+    width: 174px;
+    height: auto;
+   
+  } 
+  
   .text {
     position: relative;
     text-align: center;
@@ -226,6 +230,7 @@
     margin-block-end: 24px;
   }
   
+  
   @media (min-width: 37.5em) {
     .me {
       position: relative;
@@ -251,8 +256,7 @@
       max-width: 445px;
       height: auto;
       left: auto;
-      right: 0;
-      translate: 0;
+      top: 230px;
     }
   
     .text {
