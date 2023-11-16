@@ -12,6 +12,17 @@
     --transition: 250ms ease-in-out;
   }
   
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s, transform 0.5s;
+  }
+  
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
   body {
     font-family: 'Space Grotesk', sans-serif;
   }
@@ -185,9 +196,9 @@
 
   .flex-container {
     display: flex;
-    justify-content: space-between; /* Aligne les éléments sur l'axe horizontal */
-    align-items: center; /* Aligne les éléments sur l'axe vertical */
-    flex-wrap: wrap; /* Permet le passage à la ligne des éléments en dessous de la largeur spécifiée */
+    justify-content: space-between; 
+    align-items: center; 
+    flex-wrap: wrap; 
 }
 
   .image {

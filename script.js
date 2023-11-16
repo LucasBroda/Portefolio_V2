@@ -1,23 +1,28 @@
-const ratio = .1
 
-const option = {
-    root: null,
-    rootMargin : '0px',
-    threshold: 1
-}
+document.addEventListener('DOMContentLoaded', function () {
 
-const handleIntersect = function(entries, observer){
-    entries.forEach(function (entry){
-        if(entry.intersectionRatio > ratio){
-            entry.target.classList.add('reveal-visible')
-            observer.unobserve(entry.target)
+    var elementsToReveal = document.querySelectorAll('.reveal');
+  
+
+    function isElementInViewport(el) {
+      var rect = el.getBoundingClientRect();
+      return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+      );
+    }
+  
+    function handleScroll() {
+      elementsToReveal.forEach(function (element) {
+        if (isElementInViewport(element)) {
+          element.classList.add('visible');
         }
-    })
-
-}
-
-
-const observer = new IntersectionObserver(handleIntersect, option);
-document.querySelectorAll('.reveal').forEach(function (r){
-    observer.observe(r)
-})
+      });
+    }
+  
+    window.addEventListener('scroll', handleScroll);
+  
+    handleScroll();
+  });
